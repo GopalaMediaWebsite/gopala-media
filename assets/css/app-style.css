@@ -70,8 +70,8 @@
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #ffffff !important;
-  border: 1.5px solid rgba(255, 255, 255, 0.45);
+  color: #eee5cf !important;
+  border: 1.5px solid rgba(238, 229, 207, 0.45);
   padding: 8px 22px;
   border-radius: 100px;
   transition: all 0.35s ease;
@@ -79,9 +79,9 @@
 }
 
 .inquire_btn:hover {
-  background-color: #ffffff;
+  background-color: #eee5cf;
   color: #003459 !important;
-  border-color: #ffffff;
+  border-color: #eee5cf;
 }
 
 /* Hide Inquire button ONLY on Contact Page */
@@ -106,7 +106,7 @@ body.contact-page .inquire_btn {
   font-weight: 700;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: #ffffff;
+  color: #eee5cf;
   transition: color 0.3s ease;
 }
 
@@ -122,7 +122,7 @@ body.contact-page .inquire_btn {
 .burger_line_top, .burger_line_bottom {
   width: 100%;
   height: 1.5px;
-  background-color: #ffffff;
+  background-color: #eee5cf;
   transition: transform 0.3s ease, background-color 0.3s ease;
   transform-origin: center;
 }
@@ -158,7 +158,7 @@ body.contact-page .inquire_btn {
 }
 .nav_desktop_wrap.is-light-bg:not(.menu-is-open) .inquire_btn:hover {
   background-color: #003459 !important;
-  color: #ffffff !important;
+  color: #eee5cf !important;
   border-color: #003459 !important;
 }
 .nav_desktop_wrap.is-light-bg:not(.menu-is-open) .menu_text {
@@ -170,20 +170,20 @@ body.contact-page .inquire_btn {
 }
 
 .nav_desktop_wrap.is-dark-bg:not(.menu-is-open) .inquire_btn {
-  color: #ffffff !important;
-  border-color: rgba(255, 255, 255, 0.45) !important;
+  color: #eee5cf !important;
+  border-color: rgba(238, 229, 207, 0.45) !important;
 }
 .nav_desktop_wrap.is-dark-bg:not(.menu-is-open) .inquire_btn:hover {
-  background-color: #ffffff !important;
+  background-color: #eee5cf !important;
   color: #003459 !important;
-  border-color: #ffffff !important;
+  border-color: #eee5cf !important;
 }
 .nav_desktop_wrap.is-dark-bg:not(.menu-is-open) .menu_text {
-  color: #ffffff !important;
+  color: #eee5cf !important;
 }
 .nav_desktop_wrap.is-dark-bg:not(.menu-is-open) .burger_line_top,
 .nav_desktop_wrap.is-dark-bg:not(.menu-is-open) .burger_line_bottom {
-  background-color: #ffffff !important;
+  background-color: #eee5cf !important;
 }
 
 /* Full-screen Overlay Menu */
