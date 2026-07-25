@@ -188,8 +188,8 @@
   left: 0;
   width: 100vw;
   height: 100dvh;
-  z-index: 90;
-  background: linear-gradient(rgba(0, 52, 89, 0.88), rgba(0, 52, 89, 0.88)), url('../images/Hello.jpg');
+  z-index: 9999 !important;
+  background: linear-gradient(rgba(0, 52, 89, 0.94), rgba(0, 52, 89, 0.94)), url('../images/Hello.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -204,6 +204,7 @@
 #menu-overlay.active {
   clip-path: circle(200vmax at 100% 0%);
   pointer-events: auto;
+  z-index: 9999 !important;
 }
 
 .menu_nav_container {
@@ -373,6 +374,33 @@
   }
   .nav_mobile_wrap {
     display: none !important;
+  }
+}
+
+@media (max-width: 48rem) {
+  .nav_component {
+    z-index: 10000 !important;
+  }
+  .nav_desktop_wrap {
+    padding: 0 1rem !important;
+  }
+  .nav_logo_img {
+    height: 4.25rem !important;
+  }
+  .nav_right_group {
+    gap: 0.4rem !important;
+  }
+  .inquire_btn {
+    padding: 6px 12px !important;
+    font-size: 0.72rem !important;
+    letter-spacing: 0.1em !important;
+  }
+  .menu_trigger {
+    gap: 0.35rem !important;
+  }
+  .menu_text {
+    font-size: 0.75rem !important;
+    letter-spacing: 0.15em !important;
   }
 }
 
