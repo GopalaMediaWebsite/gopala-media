@@ -382,25 +382,34 @@
     z-index: 10000 !important;
   }
   .nav_desktop_wrap {
-    padding: 0 1rem !important;
+    padding: 0 1.25rem !important;
   }
   .nav_logo_img {
-    height: 4.25rem !important;
+    height: 4rem !important;
+    max-width: 120px !important;
+    object-fit: contain !important;
   }
   .nav_right_group {
-    gap: 0.4rem !important;
+    gap: 0.5rem !important;
+    margin-left: auto !important;
+    flex-shrink: 0 !important;
   }
   .inquire_btn {
-    padding: 6px 12px !important;
-    font-size: 0.72rem !important;
-    letter-spacing: 0.1em !important;
+    display: none !important; /* Hide secondary inquire button in top bar on mobile to leave clean breathing room for Menu trigger */
   }
   .menu_trigger {
-    gap: 0.35rem !important;
+    gap: 0.5rem !important;
+    display: flex !important;
+    align-items: center !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 4px 0 !important;
   }
   .menu_text {
-    font-size: 0.75rem !important;
-    letter-spacing: 0.15em !important;
+    font-size: 0.85rem !important;
+    letter-spacing: 0.2em !important;
+    font-weight: 700 !important;
+    white-space: nowrap !important;
   }
 }
 
