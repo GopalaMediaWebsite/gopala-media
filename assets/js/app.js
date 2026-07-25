@@ -487,7 +487,11 @@ function initHeaderColorScroll() {
 
     const testX = Math.min(window.innerWidth - 60, window.innerWidth * 0.85);
     const testY = 35;
+
+    const prevHeaderPE = header.style.pointerEvents;
+    header.style.pointerEvents = 'none';
     let el = document.elementFromPoint(testX, testY);
+    header.style.pointerEvents = prevHeaderPE;
 
     if (el) {
       if (el.id === 'menu-overlay' || el.closest('#menu-overlay')) {
@@ -495,8 +499,10 @@ function initHeaderColorScroll() {
         if (overlay) {
           const prevPE = overlay.style.pointerEvents;
           overlay.style.pointerEvents = 'none';
+          header.style.pointerEvents = 'none';
           el = document.elementFromPoint(testX, testY);
           overlay.style.pointerEvents = prevPE;
+          header.style.pointerEvents = prevHeaderPE;
         }
       }
     }
