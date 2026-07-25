@@ -503,7 +503,7 @@ function initHeaderColorScroll() {
 
     let isDark = false;
     if (el) {
-      const darkSection = el.closest('.hero_main_wrap, .hero_video_overlay, .is-dark-section, [data-theme="dark"]');
+      const darkSection = el.closest('.hero_main_wrap, .hero_video_overlay, .footer_wrap, footer, .social_ticker_wrap, .is-dark-section, [data-theme="dark"]');
       if (darkSection) {
         isDark = true;
       } else {
@@ -521,8 +521,8 @@ function initHeaderColorScroll() {
               if (brightness < 135) {
                 isDark = true;
               }
+              break;
             }
-            break;
           }
           current = current.parentElement;
         }
