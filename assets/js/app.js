@@ -89,7 +89,7 @@ initBannerClose();
 initWorkFilters();
 initContactTrail();
 initAccordionSystem();
-initLogoColorScroll();
+initHeaderColorScroll();
 initCardFlip();
 initMenuSystem();
 initTestimonialsSlider();
@@ -478,28 +478,60 @@ ease: "power2.out"
 });
 });
 }
-function initLogoColorScroll() {
-const logoTexts = document.querySelectorAll(".nav_logo_text");
-if (!logoTexts.length) return;
-const updateColor = () => {
-let color = "#ffffff";
-const lightSections = document.querySelectorAll(".brands-marquee-section, .about_section_wrap");
-lightSections.forEach(section => {
-const rect = section.getBoundingClientRect();
-if (rect.top <= 60 && rect.bottom >= 0) {
-color = "#100E0A";
-}
-});
-logoTexts.forEach(el => {
-el.style.color = color;
-});
-};
-window.addEventListener("scroll", updateColor);
-window.addEventListener("resize", updateColor);
-updateColor();
-if (window.lenis) {
-window.lenis.on('scroll', updateColor);
-}
+function initHeaderColorScroll() {
+  const header = document.querySelector(".nav_desktop_wrap");
+  if (!header) return;
+
+  const updateHeaderContrast = () => {
+    if (header.classList.contains('menu-is-open')) return;
+
+    const testX = Math.min(window.innerWidth - 60, window.innerWidth * 0.85);
+    const testY = 35;
+    const el = document.elementFromPoint(testX, testY);
+
+    let isDark = false;
+    if (el) {
+      const darkSection = el.closest('.hero_main_wrap, .hero_video_overlay, #menu-overlay, .is-dark-section, [data-theme="dark"]');
+      if (darkSection) {
+        isDark = true;
+      } else {
+        let current = el;
+        while (current && current !== document.body && current !== document.documentElement) {
+          const style = window.getComputedStyle(current);
+          const bg = style.backgroundColor;
+          if (bg && bg !== 'transparent' && bg !== 'rgba(0, 0, 0, 0)') {
+            const rgb = bg.match(/\d+/g);
+            if (rgb && rgb.length >= 3) {
+              const r = parseInt(rgb[0], 10);
+              const g = parseInt(rgb[1], 10);
+              const b = parseInt(rgb[2], 10);
+              const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+              if (brightness < 135) {
+                isDark = true;
+              }
+            }
+            break;
+          }
+          current = current.parentElement;
+        }
+      }
+    }
+
+    if (isDark) {
+      header.classList.add("is-dark-bg");
+      header.classList.remove("is-light-bg");
+    } else {
+      header.classList.add("is-light-bg");
+      header.classList.remove("is-dark-bg");
+    }
+  };
+
+  window.addEventListener("scroll", updateHeaderContrast, { passive: true });
+  window.addEventListener("resize", updateHeaderContrast, { passive: true });
+  updateHeaderContrast();
+  if (window.lenis) {
+    window.lenis.on('scroll', updateHeaderContrast);
+  }
 }
 function initCardFlip() {
 const cards = document.querySelectorAll('.work_card_wrap');

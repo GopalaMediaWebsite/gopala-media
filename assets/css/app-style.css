@@ -146,6 +146,41 @@
   filter: none !important;
 }
 
+/* Dynamic Header Contrast States */
+.nav_desktop_wrap.is-light-bg:not(.menu-is-open) .inquire_btn {
+  color: #003459 !important;
+  border-color: rgba(0, 52, 89, 0.4) !important;
+}
+.nav_desktop_wrap.is-light-bg:not(.menu-is-open) .inquire_btn:hover {
+  background-color: #003459 !important;
+  color: #eee5cf !important;
+  border-color: #003459 !important;
+}
+.nav_desktop_wrap.is-light-bg:not(.menu-is-open) .menu_text {
+  color: #003459 !important;
+}
+.nav_desktop_wrap.is-light-bg:not(.menu-is-open) .burger_line_top,
+.nav_desktop_wrap.is-light-bg:not(.menu-is-open) .burger_line_bottom {
+  background-color: #003459 !important;
+}
+
+.nav_desktop_wrap.is-dark-bg:not(.menu-is-open) .inquire_btn {
+  color: #eee5cf !important;
+  border-color: rgba(238, 229, 207, 0.4) !important;
+}
+.nav_desktop_wrap.is-dark-bg:not(.menu-is-open) .inquire_btn:hover {
+  background-color: #eee5cf !important;
+  color: #003459 !important;
+  border-color: #eee5cf !important;
+}
+.nav_desktop_wrap.is-dark-bg:not(.menu-is-open) .menu_text {
+  color: #eee5cf !important;
+}
+.nav_desktop_wrap.is-dark-bg:not(.menu-is-open) .burger_line_top,
+.nav_desktop_wrap.is-dark-bg:not(.menu-is-open) .burger_line_bottom {
+  background-color: #eee5cf !important;
+}
+
 /* Full-screen Overlay Menu */
 #menu-overlay {
   position: fixed;
