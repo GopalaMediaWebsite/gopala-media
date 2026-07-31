@@ -844,73 +844,59 @@ html, body {
     transform: translate(-5px, 30px) rotate(0deg) scale(1.08) !important;
 /* --- LUXURY BRAND EXPANDABLE REVIEW BUTTON STYLES --- */
 .review_expand_btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background-color: transparent;
-  border: 1px solid rgba(0, 52, 89, 0.2);
-  border-radius: 100px;
-  padding: 0.45rem 1.1rem;
-  font-family: var(--font-outfit), sans-serif;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #003459;
-  cursor: pointer;
-  margin-top: 0.5rem;
-  margin-bottom: 1.25rem;
-  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-  align-self: flex-start;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 52, 89, 0.04);
-}
-
-.review_expand_btn::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #003459 0%, #00223d 100%);
-  opacity: 0;
-  transition: opacity 0.35s ease;
-  z-index: 0;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5rem !important;
+  width: auto !important;
+  max-width: max-content !important;
+  background-color: transparent !important;
+  border: 1px solid rgba(0, 52, 89, 0.25) !important;
+  border-radius: 100px !important;
+  padding: 0.45rem 1.15rem !important;
+  font-family: var(--font-outfit), sans-serif !important;
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  color: #003459 !important;
+  cursor: pointer !important;
+  margin-top: 0.75rem !important;
+  margin-bottom: 1.25rem !important;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1) !important;
+  box-shadow: none !important;
+  outline: none !important;
+  line-height: 1 !important;
 }
 
 .review_expand_btn:hover {
-  border-color: #003459;
-  color: #ffc300;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(0, 52, 89, 0.18);
+  background-color: #003459 !important;
+  color: #ffc300 !important;
+  border-color: #003459 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 14px rgba(0, 52, 89, 0.18) !important;
 }
 
-.review_expand_btn:hover::before {
-  opacity: 1;
-}
-
-.review_expand_btn .expand_btn_text,
-.review_expand_btn .expand_arrow_icon {
-  position: relative;
-  z-index: 1;
+.review_expand_btn .expand_btn_text {
+  font-family: var(--font-outfit), sans-serif !important;
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
 }
 
 .review_expand_btn .expand_arrow_icon {
-  width: 12px;
-  height: 12px;
-  stroke-width: 2.5;
-  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-  color: #ffc300;
-}
-
-.review_expand_btn:hover .expand_arrow_icon {
-  color: #ffc300;
+  width: 12px !important;
+  height: 12px !important;
+  stroke-width: 2.5 !important;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1) !important;
+  color: currentColor !important;
 }
 
 .review_expand_btn.is-expanded .expand_arrow_icon {
-  transform: rotate(180deg);
+  transform: rotate(180deg) !important;
 }
 
 /* --- CONTACT PAGE MOUSE TRAIL & SECTION STYLES --- */
