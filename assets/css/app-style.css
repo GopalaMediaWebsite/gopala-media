@@ -842,34 +842,71 @@ html, body {
   }
   .polaroid_card.card_3:hover {
     transform: translate(-5px, 30px) rotate(0deg) scale(1.08) !important;
-/* --- EXPANDABLE REVIEW BUTTON STYLES --- */
+/* --- LUXURY BRAND EXPANDABLE REVIEW BUTTON STYLES --- */
 .review_expand_btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  background: transparent;
-  border: 1px solid rgba(0, 52, 89, 0.25);
+  gap: 0.5rem;
+  background-color: transparent;
+  border: 1px solid rgba(0, 52, 89, 0.2);
   border-radius: 100px;
-  padding: 0.35rem 0.85rem;
+  padding: 0.45rem 1.1rem;
   font-family: var(--font-outfit), sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   color: #003459;
   cursor: pointer;
-  margin-top: 0.25rem;
+  margin-top: 0.5rem;
   margin-bottom: 1.25rem;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
   align-self: flex-start;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 52, 89, 0.04);
+}
+
+.review_expand_btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #003459 0%, #00223d 100%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  z-index: 0;
 }
 
 .review_expand_btn:hover {
-  background-color: #003459;
-  color: #eee5cf;
   border-color: #003459;
+  color: #ffc300;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(0, 52, 89, 0.18);
+}
+
+.review_expand_btn:hover::before {
+  opacity: 1;
+}
+
+.review_expand_btn .expand_btn_text,
+.review_expand_btn .expand_arrow_icon {
+  position: relative;
+  z-index: 1;
 }
 
 .review_expand_btn .expand_arrow_icon {
-  transition: transform 0.3s ease;
+  width: 12px;
+  height: 12px;
+  stroke-width: 2.5;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  color: #ffc300;
+}
+
+.review_expand_btn:hover .expand_arrow_icon {
+  color: #ffc300;
 }
 
 .review_expand_btn.is-expanded .expand_arrow_icon {
