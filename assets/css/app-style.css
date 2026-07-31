@@ -842,7 +842,8 @@ html, body {
   }
   .polaroid_card.card_3:hover {
     transform: translate(-5px, 30px) rotate(0deg) scale(1.08) !important;
-/* --- LUXURY BRAND EXPANDABLE REVIEW BUTTON STYLES --- */
+/* --- LUXURY BRAND EXPANDABLE REVIEW BADGE STYLES --- */
+a.review_expand_btn,
 .review_expand_btn {
   appearance: none !important;
   -webkit-appearance: none !important;
@@ -850,11 +851,11 @@ html, body {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  gap: 0.5rem !important;
+  gap: 0.6rem !important;
   width: auto !important;
   max-width: max-content !important;
-  background-color: transparent !important;
-  border: 1px solid rgba(0, 52, 89, 0.25) !important;
+  background-color: rgba(0, 52, 89, 0.04) !important;
+  border: 1px solid rgba(0, 52, 89, 0.18) !important;
   border-radius: 100px !important;
   padding: 0.45rem 1.15rem !important;
   font-family: var(--font-outfit), sans-serif !important;
@@ -863,21 +864,24 @@ html, body {
   letter-spacing: 0.12em !important;
   text-transform: uppercase !important;
   color: #003459 !important;
+  text-decoration: none !important;
   cursor: pointer !important;
   margin-top: 0.75rem !important;
   margin-bottom: 1.25rem !important;
   transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1) !important;
-  box-shadow: none !important;
+  box-shadow: 0 2px 8px rgba(0, 52, 89, 0.04) !important;
   outline: none !important;
-  line-height: 1 !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
 }
 
+a.review_expand_btn:hover,
 .review_expand_btn:hover {
   background-color: #003459 !important;
   color: #ffc300 !important;
   border-color: #003459 !important;
-  transform: translateY(-1px) !important;
-  box-shadow: 0 4px 14px rgba(0, 52, 89, 0.18) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 18px rgba(0, 52, 89, 0.22) !important;
 }
 
 .review_expand_btn .expand_btn_text {
@@ -885,14 +889,34 @@ html, body {
   font-size: 0.72rem !important;
   font-weight: 700 !important;
   letter-spacing: 0.12em !important;
+  color: inherit !important;
+}
+
+.review_expand_btn .expand_arrow_badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 20px !important;
+  height: 20px !important;
+  border-radius: 50% !important;
+  background-color: rgba(0, 52, 89, 0.08) !important;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+.review_expand_btn:hover .expand_arrow_badge {
+  background-color: rgba(255, 195, 0, 0.2) !important;
 }
 
 .review_expand_btn .expand_arrow_icon {
-  width: 12px !important;
-  height: 12px !important;
-  stroke-width: 2.5 !important;
+  width: 10px !important;
+  height: 10px !important;
+  stroke-width: 3 !important;
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1) !important;
-  color: currentColor !important;
+  color: #003459 !important;
+}
+
+.review_expand_btn:hover .expand_arrow_icon {
+  color: #ffc300 !important;
 }
 
 .review_expand_btn.is-expanded .expand_arrow_icon {
