@@ -497,6 +497,33 @@ function initTestimonialsSlider() {
     container.addEventListener('mouseleave', () => resetAutoPlay());
   }
 
+  // Handle expandable long reviews
+  document.querySelectorAll('.review_expand_btn').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      const card = this.closest('.testimonials_quote_card');
+      const truncated = card.querySelector('.review_text_truncated');
+      const full = card.querySelector('.review_text_full');
+      const btnText = this.querySelector('.expand_btn_text');
+      const isExpanded = this.classList.contains('is-expanded');
+
+      if (isExpanded) {
+        this.classList.remove('is-expanded');
+        this.setAttribute('aria-expanded', 'false');
+        if (truncated) truncated.style.display = 'inline';
+        if (full) full.style.display = 'none';
+        if (btnText) btnText.textContent = 'Read Full Review';
+      } else {
+        this.classList.add('is-expanded');
+        this.setAttribute('aria-expanded', 'true');
+        if (truncated) truncated.style.display = 'none';
+        if (full) full.style.display = 'inline';
+        if (btnText) btnText.textContent = 'Show Less';
+      }
+    });
+  });
+
   // Initialize first slide position
   goToSlide(0);
 }
