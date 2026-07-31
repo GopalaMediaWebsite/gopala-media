@@ -265,6 +265,9 @@ function initMenuSystem() {
     }
   });
 
+  const closeBtn = document.getElementById('menu-overlay-close');
+  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && overlay.classList.contains('active')) {
       closeMenu();
