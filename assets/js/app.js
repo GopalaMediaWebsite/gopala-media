@@ -231,9 +231,19 @@ function initMenuSystem() {
   const overlay = document.getElementById('menu-overlay');
   if (!trigger || !overlay) return;
 
-  trigger.addEventListener('click', () => {
+  const closeMenu = () => {
+    overlay.classList.remove('active');
+    trigger.classList.remove('active');
+    document.body.classList.remove('menu-is-open');
+    document.body.style.overflow = '';
+    if (window.lenis) window.lenis.start();
+  };
+
+  trigger.addEventListener('click', (e) => {
+    e.stopPropagation();
     const isActive = overlay.classList.toggle('active');
     trigger.classList.toggle('active', isActive);
+    document.body.classList.toggle('menu-is-open', isActive);
     
     if (isActive) {
       document.body.style.overflow = 'hidden';
@@ -244,13 +254,17 @@ function initMenuSystem() {
     }
   });
 
+  const closeBtn = document.getElementById('menu-overlay-close');
+  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('active')) {
+      closeMenu();
+    }
+  });
+
   overlay.querySelectorAll('.menu_nav_link').forEach(link => {
-    link.addEventListener('click', () => {
-      overlay.classList.remove('active');
-      trigger.classList.remove('active');
-      document.body.style.overflow = '';
-      if (window.lenis) window.lenis.start();
-    });
+    link.addEventListener('click', closeMenu);
   });
 }
 

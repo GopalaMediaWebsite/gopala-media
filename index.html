@@ -51,6 +51,8 @@
   <link rel="preconnect" href="https://fonts.cdnfonts.com">
   <link href="https://fonts.cdnfonts.com/css/milkshake" rel="stylesheet">
   <link href="https://fonts.cdnfonts.com/css/wanderlust" rel="stylesheet">
+  <!-- Preload Wanderlust Font to eliminate FOUT -->
+  <link rel="preload" href="https://fonts.cdnfonts.com/s/86385/Wanderlust.woff" as="font" type="font/woff" crossorigin="anonymous">
   <link href="assets/css/app-style.css?v=17" rel="stylesheet" type="text/css"/>
   <link href="assets/images/logo.png" rel="shortcut icon" type="image/x-icon"/>
   <link href="assets/images/logo.png" rel="apple-touch-icon"/>
@@ -78,6 +80,7 @@
 
 <!-- Full-screen Overlay Menu -->
     <div id="menu-overlay">
+      <button class="menu_overlay_close_btn" id="menu-overlay-close" aria-label="Close menu">&times;</button>
       <nav class="menu_nav_container">
         <div class="menu_left_side">
           <a class="menu_nav_link" href="index.html" style="transition-delay: 0.1s;">Home</a>
@@ -125,7 +128,7 @@
 
           <!-- Nav Trigger & Inquire -->
           <div class="nav_right_group">
-            <a href="contact.html" class="inquire_btn">INQUIRE</a>
+            <a href="equipments.html" class="inquire_btn">GET A QUOTE</a>
             <button class="menu_trigger" id="menu-trigger" aria-label="Toggle Menu">
               <span class="menu_text">Menu</span>
               <div class="burger_icon">
