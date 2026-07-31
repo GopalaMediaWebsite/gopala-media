@@ -190,9 +190,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const category = card.getAttribute("data-category");
     const imgUrl = card.getAttribute("data-img");
     
-    // Read desc & specs grid from expanded contents
-    const descText = card.querySelector(".expanded_desc_text").textContent;
-    const specsHTML = card.querySelector(".expanded_specs_grid").innerHTML;
+    // Read desc & specs grid from expanded details data (hidden div)
+    const detailsData = card.querySelector(".expanded_details_data") || card.querySelector(".card_expanded_content");
+    const descText = detailsData ? detailsData.querySelector(".expanded_desc_text").textContent : '';
+    const specsHTML = detailsData ? detailsData.querySelector(".expanded_specs_grid").innerHTML : '';
 
     // Inject values
     panelImg.src = imgUrl;

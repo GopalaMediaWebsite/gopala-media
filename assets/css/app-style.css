@@ -127,6 +127,19 @@ body.contact-page .inquire_btn {
   transform-origin: center;
 }
 
+/* Desktop menu trigger X transform when active */
+.menu_trigger.active .burger_line_top {
+  transform: translateY(5px) rotate(45deg);
+  background-color: #eee5cf;
+}
+.menu_trigger.active .burger_line_bottom {
+  transform: translateY(-5px) rotate(-45deg);
+  background-color: #eee5cf;
+}
+.menu_trigger.active .menu_text {
+  color: #eee5cf;
+}
+
 /* Header link override when menu is open */
 .nav_desktop_wrap.menu-is-open .menu_text {
   color: #eee5cf !important;
