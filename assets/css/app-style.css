@@ -1703,17 +1703,23 @@ a.review_expand_btn:hover,
 }
 
 /* === BURGER STICKS TO CROSS (X) ANIMATION WHEN ACTIVE === */
-.menu_trigger.active .burger_line_top {
+.menu_trigger.active .burger_line_top,
+body.menu-is-open .menu_trigger .burger_line_top,
+#menu-overlay.active ~ * .burger_line_top {
   transform: translateY(5px) rotate(45deg) !important;
   background-color: #eee5cf !important;
 }
 
-.menu_trigger.active .burger_line_bottom {
+.menu_trigger.active .burger_line_bottom,
+body.menu-is-open .menu_trigger .burger_line_bottom,
+#menu-overlay.active ~ * .burger_line_bottom {
   transform: translateY(-5px) rotate(-45deg) !important;
   background-color: #eee5cf !important;
 }
 
-.menu_trigger.active .menu_text {
+.menu_trigger.active .menu_text,
+body.menu-is-open .menu_trigger .menu_text,
+#menu-overlay.active ~ * .menu_text {
   color: #eee5cf !important;
 }
 

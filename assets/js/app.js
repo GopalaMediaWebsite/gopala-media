@@ -171,6 +171,10 @@ function initHeaderColorScroll() {
   }
 
   function updateHeaderColor() {
+    if (document.body.classList.contains('menu-is-open')) {
+      header.classList.add('is-dark-bg');
+      return;
+    }
     const isContactPage = document.body.classList.contains('contact-page');
     const darkSections = getDarkSections();
     const testX = window.innerWidth / 2;
