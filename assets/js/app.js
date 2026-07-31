@@ -231,10 +231,13 @@ function initMenuSystem() {
   const overlay = document.getElementById('menu-overlay');
   if (!trigger || !overlay) return;
 
+  const menuText = trigger.querySelector('.menu_text');
+
   const closeMenu = () => {
     overlay.classList.remove('active');
     trigger.classList.remove('active');
     document.body.classList.remove('menu-is-open');
+    if (menuText) menuText.textContent = 'Menu';
     document.body.style.overflow = '';
     if (window.lenis) window.lenis.start();
   };
@@ -245,6 +248,10 @@ function initMenuSystem() {
     trigger.classList.toggle('active', isActive);
     document.body.classList.toggle('menu-is-open', isActive);
     
+    if (menuText) {
+      menuText.textContent = isActive ? 'Close' : 'Menu';
+    }
+
     if (isActive) {
       document.body.style.overflow = 'hidden';
       if (window.lenis) window.lenis.stop();
@@ -253,9 +260,6 @@ function initMenuSystem() {
       if (window.lenis) window.lenis.start();
     }
   });
-
-  const closeBtn = document.getElementById('menu-overlay-close');
-  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && overlay.classList.contains('active')) {

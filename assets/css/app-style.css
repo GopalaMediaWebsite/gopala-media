@@ -1638,65 +1638,52 @@ a.review_expand_btn:hover,
   z-index: 10000 !important;
 }
 
-/* Desktop Menu Trigger Active Transform (Burger into X) */
+/* Navigation Component Z-Index on top of menu overlay */
+.nav_component {
+  z-index: 10005 !important;
+}
+
+.menu_trigger {
+  position: relative !important;
+  z-index: 10006 !important;
+}
+
+/* Desktop Menu Trigger Active Transform (2 horizontal sticks -> Cross X) */
+.menu_trigger .burger_icon {
+  width: 22px;
+  height: 12px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.menu_trigger .burger_line_top,
+.menu_trigger .burger_line_bottom {
+  width: 100%;
+  height: 2px;
+  background-color: #eee5cf;
+  border-radius: 2px;
+  transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1), background-color 0.3s ease;
+  transform-origin: center;
+}
+
 .menu_trigger.active .burger_line_top {
   transform: translateY(5px) rotate(45deg) !important;
   background-color: #eee5cf !important;
 }
+
 .menu_trigger.active .burger_line_bottom {
   transform: translateY(-5px) rotate(-45deg) !important;
   background-color: #eee5cf !important;
 }
+
 .menu_trigger.active .menu_text {
   color: #eee5cf !important;
 }
 
-/* Menu overlay close button (Pill style in top right corner) */
-.menu_overlay_close_btn {
-  position: fixed !important;
-  top: 2rem !important;
-  right: 2.5rem !important;
-  display: flex !important;
-  align-items: center !important;
-  gap: 0.5rem !important;
-  background-color: rgba(238, 229, 207, 0.15) !important;
-  backdrop-filter: blur(10px) !important;
-  -webkit-backdrop-filter: blur(10px) !important;
-  border: 1px solid rgba(238, 229, 207, 0.4) !important;
-  color: #eee5cf !important;
-  padding: 0.65rem 1.4rem !important;
-  border-radius: 100px !important;
-  font-family: var(--font-outfit), Arial, sans-serif !important;
-  font-size: 0.85rem !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.15em !important;
-  text-transform: uppercase !important;
-  cursor: pointer !important;
-  z-index: 10005 !important;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(-10px);
-}
-
-#menu-overlay.active .menu_overlay_close_btn {
-  opacity: 1 !important;
-  pointer-events: auto !important;
-  transform: translateY(0) !important;
-}
-
-.menu_overlay_close_btn:hover {
-  background-color: #eee5cf !important;
-  color: #003459 !important;
-  border-color: #eee5cf !important;
-  transform: scale(1.05) !important;
-}
-
-@media (max-width: 48rem) {
-  .menu_overlay_close_btn {
-    top: 1.25rem !important;
-    right: 1.25rem !important;
-    padding: 0.5rem 1.1rem !important;
-    font-size: 0.75rem !important;
-  }
+/* Hide INQUIRE button next to menu trigger when overlay is open to keep close trigger clean */
+body.menu-is-open .inquire_btn {
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
