@@ -1638,36 +1638,81 @@ a.review_expand_btn:hover,
   z-index: 10000 !important;
 }
 
-/* Navigation Component Z-Index on top of menu overlay */
+/* === FORCE NAVIGATION WRAPPER & MENU TRIGGER VISIBILITY ON ALL BREAKPOINTS === */
+
+@media (max-width: 65rem) {
+  .nav_desktop_wrap {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+  .nav_mobile_wrap {
+    display: none !important;
+  }
+}
+
 .nav_component {
+  position: fixed !important;
+  top: 0.75rem !important;
+  left: 0 !important;
+  width: 100% !important;
   z-index: 10005 !important;
+  pointer-events: none !important;
+}
+
+.nav_desktop_contain, 
+.nav_desktop_layout, 
+.nav_right_group, 
+.menu_trigger,
+.nav_desktop_logo {
+  pointer-events: auto !important;
 }
 
 .menu_trigger {
   position: relative !important;
   z-index: 10006 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+  cursor: pointer !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0.5rem 0.75rem !important;
+  outline: none !important;
 }
 
-/* Desktop Menu Trigger Active Transform (2 horizontal sticks -> Cross X) */
-.menu_trigger .burger_icon {
-  width: 22px;
-  height: 12px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.menu_text {
+  font-family: var(--font-outfit), sans-serif !important;
+  font-size: 0.85rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+  color: #eee5cf !important;
+  transition: color 0.3s ease !important;
 }
 
-.menu_trigger .burger_line_top,
-.menu_trigger .burger_line_bottom {
-  width: 100%;
-  height: 2px;
-  background-color: #eee5cf;
-  border-radius: 2px;
-  transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1), background-color 0.3s ease;
-  transform-origin: center;
+.burger_icon {
+  width: 22px !important;
+  height: 12px !important;
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  align-items: center !important;
 }
 
+.burger_line_top,
+.burger_line_bottom {
+  width: 100% !important;
+  height: 2px !important;
+  background-color: #eee5cf !important;
+  border-radius: 2px !important;
+  transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1), background-color 0.3s ease !important;
+  transform-origin: center !important;
+}
+
+/* === BURGER STICKS TO CROSS (X) ANIMATION WHEN ACTIVE === */
 .menu_trigger.active .burger_line_top {
   transform: translateY(5px) rotate(45deg) !important;
   background-color: #eee5cf !important;
