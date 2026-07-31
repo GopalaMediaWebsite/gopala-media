@@ -1638,19 +1638,7 @@ a.review_expand_btn:hover,
   z-index: 10000 !important;
 }
 
-/* === FORCE NAVIGATION WRAPPER & MENU TRIGGER VISIBILITY ON ALL BREAKPOINTS === */
-
-@media (max-width: 65rem) {
-  .nav_desktop_wrap {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    width: 100% !important;
-  }
-  .nav_mobile_wrap {
-    display: none !important;
-  }
-}
+/* === NAVIGATION & MENU TRIGGER FIXED CONTRAST OVERRIDES === */
 
 .nav_component {
   position: fixed !important;
@@ -1664,13 +1652,14 @@ a.review_expand_btn:hover,
 .nav_desktop_contain, 
 .nav_desktop_layout, 
 .nav_right_group, 
-.menu_trigger,
 .nav_desktop_logo {
   pointer-events: auto !important;
 }
 
 .menu_trigger {
-  position: relative !important;
+  position: fixed !important;
+  top: 2rem !important;
+  right: 2.5rem !important;
   z-index: 10006 !important;
   display: flex !important;
   align-items: center !important;
@@ -1680,6 +1669,7 @@ a.review_expand_btn:hover,
   border: none !important;
   padding: 0.5rem 0.75rem !important;
   outline: none !important;
+  pointer-events: auto !important;
 }
 
 .menu_text {
@@ -1693,7 +1683,7 @@ a.review_expand_btn:hover,
 }
 
 .burger_icon {
-  width: 22px !important;
+  width: 24px !important;
   height: 12px !important;
   position: relative !important;
   display: flex !important;
@@ -1727,8 +1717,15 @@ a.review_expand_btn:hover,
   color: #eee5cf !important;
 }
 
-/* Hide INQUIRE button next to menu trigger when overlay is open to keep close trigger clean */
+/* Hide INQUIRE button next to menu trigger when overlay is open */
 body.menu-is-open .inquire_btn {
   opacity: 0 !important;
   pointer-events: none !important;
+}
+
+@media (max-width: 48rem) {
+  .menu_trigger {
+    top: 1.25rem !important;
+    right: 1.25rem !important;
+  }
 }
