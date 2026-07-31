@@ -386,5 +386,117 @@ function initContactTrail() {
 }
 
 function initTestimonialsSlider() {
-  // Testimonial slider setup if present
+  const track = document.querySelector('.testimonials_slider_track');
+  const slides = document.querySelectorAll('.testimonial_slide');
+  const prevBtn = document.querySelector('.arrow_prev');
+  const nextBtn = document.querySelector('.arrow_next');
+  const dotsContainer = document.querySelector('.testimonials_dots_container');
+
+  if (!track || !slides.length) return;
+
+  let currentIndex = 0;
+  const totalSlides = slides.length;
+
+  // Build dots dynamically if needed or bind to existing dots
+  let dots = document.querySelectorAll('.testimonials_dots_container .dot');
+  if (!dots.length && dotsContainer) {
+    dotsContainer.innerHTML = '';
+    slides.forEach((_, idx) => {
+      const dot = document.createElement('span');
+      dot.className = `dot${idx === 0 ? ' active' : ''}`;
+      dot.setAttribute('data-slide', idx);
+      dotsContainer.appendChild(dot);
+    });
+    dots = document.querySelectorAll('.testimonials_dots_container .dot');
+  }
+
+  function goToSlide(index) {
+    if (index < 0) {
+      currentIndex = totalSlides - 1;
+    } else if (index >= totalSlides) {
+      currentIndex = 0;
+    } else {
+      currentIndex = index;
+    }
+
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+    dots.forEach((dot, idx) => {
+      if (idx === currentIndex) {
+        dot.classList.add('active');
+      } else {
+        dot.classList.remove('active');
+      }
+    });
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      goToSlide(currentIndex - 1);
+      resetAutoPlay();
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      goToSlide(currentIndex + 1);
+      resetAutoPlay();
+    });
+  }
+
+  dots.forEach((dot, idx) => {
+    dot.addEventListener('click', () => {
+      goToSlide(idx);
+      resetAutoPlay();
+    });
+  });
+
+  // Touch Swipe Support
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  const sliderWrap = document.querySelector('.testimonials_slider_track_wrap') || track;
+  sliderWrap.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  sliderWrap.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  }, { passive: true });
+
+  function handleSwipe() {
+    const swipeThreshold = 40;
+    if (touchEndX < touchStartX - swipeThreshold) {
+      goToSlide(currentIndex + 1);
+      resetAutoPlay();
+    } else if (touchEndX > touchStartX + swipeThreshold) {
+      goToSlide(currentIndex - 1);
+      resetAutoPlay();
+    }
+  }
+
+  // Auto-play timer
+  let autoPlayTimer = setInterval(() => {
+    goToSlide(currentIndex + 1);
+  }, 6000);
+
+  function resetAutoPlay() {
+    clearInterval(autoPlayTimer);
+    autoPlayTimer = setInterval(() => {
+      goToSlide(currentIndex + 1);
+    }, 6000);
+  }
+
+  // Pause autoplay on mouse enter
+  const container = document.querySelector('.testimonials_slider_container');
+  if (container) {
+    container.addEventListener('mouseenter', () => clearInterval(autoPlayTimer));
+    container.addEventListener('mouseleave', () => resetAutoPlay());
+  }
+
+  // Initialize first slide position
+  goToSlide(0);
 }
