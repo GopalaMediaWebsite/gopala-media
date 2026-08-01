@@ -352,36 +352,6 @@ document.addEventListener("DOMContentLoaded", () => {
       sizeClass: "tall"
     },
     {
-      title: "Precision Binoculars Catalog",
-      category: "Corporate",
-      img: "assets/images/work/_DSF5765 copy.jpg",
-      sizeClass: "tall"
-    },
-    {
-      title: "Draco Telescope Showcase",
-      category: "Corporate",
-      img: "assets/images/work/_DSF5771 copy 2.jpg",
-      sizeClass: "medium"
-    },
-    {
-      title: "Pegasus Telescope Campaign",
-      category: "Corporate",
-      img: "assets/images/work/_DSF5894 copy.jpg",
-      sizeClass: "short"
-    },
-    {
-      title: "Optical Engineering Detail",
-      category: "Corporate",
-      img: "assets/images/work/_DSF5914 copy.jpg",
-      sizeClass: "tall"
-    },
-    {
-      title: "Precision Finder Scope Close-up",
-      category: "Corporate",
-      img: "assets/images/work/_DSF5922 copy.jpg",
-      sizeClass: "medium"
-    },
-    {
       title: "Summer Linen Editorial",
       category: "Film & Video",
       img: "assets/images/work/_DSF6079 copy.jpg",
