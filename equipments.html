@@ -461,26 +461,19 @@
       box-sizing: border-box;
     }
     
-    .equip_page_layout {
-      display: flex;
-      width: 100%;
-      position: relative;
-      align-items: flex-start;
-    }
-    
     .equip_panel_side {
       position: fixed;
       top: 0;
       right: 0;
-      width: 440px;
+      width: 480px;
       height: 100vh;
       background-color: var(--bg-cream);
       border-left: 1.5px solid rgba(16, 14, 10, 0.08);
       z-index: 10000;
-      padding: 6.5rem 2.2rem 3rem;
+      padding: 6.5rem 2.5rem 3rem;
       box-sizing: border-box;
-      transform: translateX(105%);
-      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateX(100%);
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
       display: flex;
       flex-direction: column;
     }
@@ -492,7 +485,7 @@
     
     @media (min-width: 48.01rem) {
       .equip_page_layout.is-panel-open .equip_catalog_side {
-        width: calc(100% - 440px) !important;
+        width: calc(100% - 480px) !important;
       }
       .equip_page_layout.is-panel-open .equip_grid_list.view-m {
         grid-template-columns: repeat(3, 1fr) !important;
@@ -503,20 +496,11 @@
       .equip_page_layout.is-panel-open .equip_grid_list.view-l {
         grid-template-columns: repeat(2, 1fr) !important;
       }
-      .equip_page_layout.is-panel-open .equip_panel_side {
-        position: sticky !important;
-        top: 7rem !important;
-        height: auto !important;
-        max-height: calc(100vh - 8.5rem) !important;
-        align-self: flex-start !important;
-        transform: translateX(0) !important;
-        opacity: 1 !important;
-        pointer-events: auto !important;
-        z-index: 900 !important;
-        border-radius: 12px;
-        box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08) !important;
-        margin-top: 1rem;
-      }
+    }
+    
+    .equip_page_layout.is-panel-open .equip_panel_side {
+      transform: translateX(0);
+      box-shadow: -10px 0 35px rgba(0, 0, 0, 0.18);
     }
     
     /* Hide legacy drag handle and close buttons inside cards */
@@ -612,21 +596,16 @@
       letter-spacing: 0.05em;
     }
     
-    .panel_product_desc,
-    .panel_specs_section,
-    .panel_specs_title,
-    .expanded_specs_title {
-      display: none !important;
+    .panel_product_desc {
+      font-family: var(--font-outfit);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--color-dark-grey);
+      margin: 0;
     }
     
-    .panel_subitems_text {
-      font-family: var(--font-outfit), sans-serif;
-      font-size: 1.05rem;
-      font-weight: 600;
-      line-height: 1.6;
-      color: #003459;
-      margin-top: 1rem;
-      margin-bottom: 0;
+    .panel_specs_section {
+      width: 100%;
     }
     
     .panel_specs_title {
@@ -1133,10 +1112,15 @@
         <div class="panel_meta_wrap">
           <span class="panel_product_category"></span>
           <h2 class="panel_product_title"></h2>
-          <p class="panel_subitems_text"></p>
         </div>
-        <div class="panel_inquire_wrap" style="margin-top: 1.5rem;">
-          <a href="contact.html" class="panel_inquire_btn" style="display: block; width: 100%; padding: 0.9rem; text-align: center; background: #003459; color: #eee5cf; font-family: var(--font-outfit), sans-serif; font-weight: 700; border-radius: 100px; text-decoration: none; text-transform: uppercase; letter-spacing: 0.1em; transition: all 0.3s ease;">INQUIRE / GET A QUOTE</a>
+        <p class="panel_product_desc"></p>
+        <div class="panel_specs_section">
+          <div class="panel_specs_grid">
+            <!-- specifications injected dynamically -->
+          </div>
+        </div>
+        <div class="panel_inquire_wrap" style="margin-top: 2rem;">
+          <a href="contact.html" class="panel_inquire_btn" style="display: block; width: 100%; padding: 0.9rem; text-align: center; background: #eee5cf; color: #003459; font-family: var(--font-outfit), sans-serif; font-weight: 700; border-radius: 100px; text-decoration: none; text-transform: uppercase; letter-spacing: 0.1em; transition: all 0.3s ease;">INQUIRE / GET A QUOTE</a>
         </div>
       </div>
     </aside>

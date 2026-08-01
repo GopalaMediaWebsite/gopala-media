@@ -180,7 +180,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const panelImg = document.querySelector(".panel_product_img");
   const panelTitle = document.querySelector(".panel_product_title");
   const panelCategory = document.querySelector(".panel_product_category");
-  const panelSubitems = document.querySelector(".panel_subitems_text");
+  const panelDesc = document.querySelector(".panel_product_desc");
+  const panelSpecsGrid = document.querySelector(".panel_specs_grid");
 
   let isPanelOpen = false;
 
@@ -189,18 +190,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const category = card.getAttribute("data-category");
     const imgUrl = card.getAttribute("data-img");
     
-    // Read subitems text from card desc
-    const cardDesc = card.querySelector(".equip_card_desc");
-    const subitemsText = cardDesc ? cardDesc.textContent.trim() : '';
+    // Read desc & specs grid from expanded details data (hidden div)
+    const detailsData = card.querySelector(".expanded_details_data") || card.querySelector(".card_expanded_content");
+    const descText = detailsData ? detailsData.querySelector(".expanded_desc_text").textContent : '';
+    const specsHTML = detailsData ? detailsData.querySelector(".expanded_specs_grid").innerHTML : '';
 
     // Inject values
-    if (panelImg) {
-      panelImg.src = imgUrl;
-      panelImg.alt = title;
-    }
-    if (panelTitle) panelTitle.textContent = title;
-    if (panelCategory) panelCategory.textContent = category;
-    if (panelSubitems) panelSubitems.textContent = subitemsText;
+    panelImg.src = imgUrl;
+    panelImg.alt = title;
+    panelTitle.textContent = title;
+    panelCategory.textContent = category;
+    panelDesc.textContent = descText;
+    panelSpecsGrid.innerHTML = specsHTML;
 
     // Update quote button link with selected equipment
     const panelInquireBtn = document.querySelector(".panel_inquire_btn");
