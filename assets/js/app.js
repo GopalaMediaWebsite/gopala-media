@@ -231,51 +231,57 @@ function initCardFlip() {
 }
 
 function initMenuSystem() {
-  const trigger = document.getElementById('menu-trigger');
-  const overlay = document.getElementById('menu-overlay');
-  if (!trigger || !overlay) return;
+  const menuTrigger = document.getElementById('menu-trigger');
+  const menuOverlay = document.getElementById('menu-overlay');
+  const burgerTop = document.getElementById('burger-top');
+  const burgerBottom = document.getElementById('burger-bottom');
+  if (!menuTrigger || !menuOverlay) return;
 
-  const menuText = trigger.querySelector('.menu_text');
+  const menuText = menuTrigger.querySelector('.menu_text');
+  const header = document.querySelector('.nav_desktop_wrap');
+  let isMenuOpen = false;
 
-  const closeMenu = () => {
-    overlay.classList.remove('active');
-    trigger.classList.remove('active');
-    document.body.classList.remove('menu-is-open');
-    if (menuText) menuText.textContent = 'Menu';
-    document.body.style.overflow = '';
-    if (window.lenis) window.lenis.start();
-  };
-
-  trigger.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const isActive = overlay.classList.toggle('active');
-    trigger.classList.toggle('active', isActive);
-    document.body.classList.toggle('menu-is-open', isActive);
-    
-    if (menuText) {
-      menuText.textContent = isActive ? 'Close' : 'Menu';
+  const toggleMenu = (openState) => {
+    isMenuOpen = typeof openState === 'boolean' ? openState : !isMenuOpen;
+    menuTrigger.classList.toggle('active', isMenuOpen);
+    menuTrigger.classList.toggle('is-active', isMenuOpen);
+    document.body.classList.toggle('menu-is-open', isMenuOpen);
+    if (header) {
+      header.classList.toggle('menu-is-open', isMenuOpen);
     }
-
-    if (isActive) {
+    
+    if (isMenuOpen) {
+      menuOverlay.classList.add('active');
+      if (burgerTop) burgerTop.style.transform = 'translateY(5px) rotate(-45deg)';
+      if (burgerBottom) burgerBottom.style.transform = 'translateY(-5px) rotate(45deg)';
+      if (menuText) menuText.textContent = 'Close';
       document.body.style.overflow = 'hidden';
       if (window.lenis) window.lenis.stop();
     } else {
+      menuOverlay.classList.remove('active');
+      if (burgerTop) burgerTop.style.transform = 'none';
+      if (burgerBottom) burgerBottom.style.transform = 'none';
+      if (menuText) menuText.textContent = 'Menu';
       document.body.style.overflow = '';
       if (window.lenis) window.lenis.start();
     }
+  };
+
+  menuTrigger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleMenu();
   });
 
-  const closeBtn = document.getElementById('menu-overlay-close');
-  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
-
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && overlay.classList.contains('active')) {
-      closeMenu();
+    if (e.key === 'Escape' && menuOverlay.classList.contains('active')) {
+      toggleMenu(false);
     }
   });
 
-  overlay.querySelectorAll('.menu_nav_link').forEach(link => {
-    link.addEventListener('click', closeMenu);
+  menuOverlay.querySelectorAll('.menu_nav_link').forEach(link => {
+    link.addEventListener('click', () => {
+      toggleMenu(false);
+    });
   });
 }
 

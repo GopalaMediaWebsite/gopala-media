@@ -1638,7 +1638,7 @@ a.review_expand_btn:hover,
   z-index: 10000 !important;
 }
 
-/* === NAVIGATION & MENU TRIGGER FIXED CONTRAST OVERRIDES === */
+/* === NAVIGATION & MENU TRIGGER OVERRIDES === */
 
 .nav_component {
   position: fixed !important;
@@ -1652,24 +1652,20 @@ a.review_expand_btn:hover,
 .nav_desktop_contain, 
 .nav_desktop_layout, 
 .nav_right_group, 
-.nav_desktop_logo {
+.nav_desktop_logo,
+.menu_trigger {
   pointer-events: auto !important;
 }
 
 .menu_trigger {
-  position: fixed !important;
-  top: 2rem !important;
-  right: 2.5rem !important;
-  z-index: 10006 !important;
+  background: transparent !important;
+  border: none !important;
+  cursor: pointer !important;
   display: flex !important;
   align-items: center !important;
   gap: 0.75rem !important;
-  cursor: pointer !important;
-  background: transparent !important;
-  border: none !important;
-  padding: 0.5rem 0.75rem !important;
+  padding: 0 !important;
   outline: none !important;
-  pointer-events: auto !important;
 }
 
 .menu_text {
@@ -1678,7 +1674,6 @@ a.review_expand_btn:hover,
   font-weight: 700 !important;
   letter-spacing: 0.2em !important;
   text-transform: uppercase !important;
-  color: #eee5cf !important;
   transition: color 0.3s ease !important;
 }
 
@@ -1696,92 +1691,26 @@ a.review_expand_btn:hover,
 .burger_line_bottom {
   width: 100% !important;
   height: 2px !important;
-  background-color: #eee5cf !important;
   border-radius: 2px !important;
   transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1), background-color 0.3s ease !important;
   transform-origin: center !important;
 }
 
-/* === BURGER STICKS TO CROSS (X) ANIMATION WHEN ACTIVE === */
-.menu_trigger.active .burger_line_top,
-body.menu-is-open .menu_trigger .burger_line_top,
-#menu-overlay.active ~ * .burger_line_top {
-  transform: translateY(5px) rotate(45deg) !important;
-  background-color: #eee5cf !important;
-}
-
-.menu_trigger.active .burger_line_bottom,
-body.menu-is-open .menu_trigger .burger_line_bottom,
-#menu-overlay.active ~ * .burger_line_bottom {
-  transform: translateY(-5px) rotate(-45deg) !important;
-  background-color: #eee5cf !important;
-}
-
-.menu_trigger.active .menu_text,
-body.menu-is-open .menu_trigger .menu_text,
-#menu-overlay.active ~ * .menu_text {
+/* === MENU IS OPEN CONTRAST & ANIMATED CROSS (X) === */
+.nav_desktop_wrap.menu-is-open .menu_text,
+body.menu-is-open .menu_text {
   color: #eee5cf !important;
+}
+
+.nav_desktop_wrap.menu-is-open .burger_line_top,
+.nav_desktop_wrap.menu-is-open .burger_line_bottom,
+body.menu-is-open .burger_line_top,
+body.menu-is-open .burger_line_bottom {
+  background-color: #eee5cf !important;
 }
 
 /* Hide INQUIRE button next to menu trigger when overlay is open */
 body.menu-is-open .inquire_btn {
   opacity: 0 !important;
   pointer-events: none !important;
-}
-
-@media (max-width: 48rem) {
-  .menu_trigger {
-    top: 1.25rem !important;
-    right: 1.25rem !important;
-  }
-}
-
-/* Explicit Menu Overlay Close Button (Top Right Pill inside Overlay) */
-.menu_overlay_close_btn {
-  position: fixed !important;
-  top: 2rem !important;
-  right: 2.5rem !important;
-  display: flex !important;
-  align-items: center !important;
-  gap: 0.5rem !important;
-  background-color: rgba(238, 229, 207, 0.15) !important;
-  backdrop-filter: blur(10px) !important;
-  -webkit-backdrop-filter: blur(10px) !important;
-  border: 1px solid rgba(238, 229, 207, 0.4) !important;
-  color: #eee5cf !important;
-  padding: 0.6rem 1.3rem !important;
-  border-radius: 100px !important;
-  font-family: var(--font-outfit), Arial, sans-serif !important;
-  font-size: 0.85rem !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.15em !important;
-  text-transform: uppercase !important;
-  cursor: pointer !important;
-  z-index: 10008 !important;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(-10px);
-}
-
-#menu-overlay.active .menu_overlay_close_btn {
-  opacity: 1 !important;
-  pointer-events: auto !important;
-  transform: translateY(0) !important;
-}
-
-.menu_overlay_close_btn:hover {
-  background-color: #eee5cf !important;
-  color: #003459 !important;
-  border-color: #eee5cf !important;
-  transform: scale(1.05) !important;
-}
-
-@media (max-width: 48rem) {
-  .menu_overlay_close_btn {
-    top: 1.25rem !important;
-    right: 1.25rem !important;
-    padding: 0.5rem 1rem !important;
-    font-size: 0.75rem !important;
-  }
 }
