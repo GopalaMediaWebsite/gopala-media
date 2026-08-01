@@ -203,6 +203,12 @@ document.addEventListener("DOMContentLoaded", () => {
     panelDesc.textContent = descText;
     panelSpecsGrid.innerHTML = specsHTML;
 
+    // Update quote button link with selected equipment
+    const panelInquireBtn = document.querySelector(".panel_inquire_btn");
+    if (panelInquireBtn && title) {
+      panelInquireBtn.href = `contact.html?equipment=${encodeURIComponent(title)}`;
+    }
+
     // Copy visual style (background extensions & object fit) from card
     const cardVisual = card.querySelector(".equip_card_visual");
     const panelImgBox = document.querySelector(".panel_img_box");
