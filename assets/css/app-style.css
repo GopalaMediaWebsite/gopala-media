@@ -1540,63 +1540,63 @@ a.review_expand_btn:hover,
     border-radius: 14px !important;
   }
 
-  /* Node 1 Stack (2002: A Leap of Faith - cx: 1462, cy: 500) */
+  /* Node 1 Stack (2002: A Leap of Faith - path: 1402, 678) */
   #milestone-1 {
-    left: 1462px !important;
-    top: 500px !important;
+    left: 1402px !important;
+    top: 678px !important;
     transform: translate(-50%, -106%) !important;
   }
   #milestone-1-img {
-    left: 1462px !important;
-    top: 500px !important;
+    left: 1402px !important;
+    top: 678px !important;
     transform: translate(-50%, 8%) !important;
   }
 
-  /* Node 2 Stack (The Name: Why Gopala? - cx: 1400, cy: 1300) */
+  /* Node 2 Stack (The Name: Why Gopala? - path: 1610, 1498) */
   #milestone-2 {
-    left: 1400px !important;
-    top: 1300px !important;
+    left: 1610px !important;
+    top: 1498px !important;
     transform: translate(-50%, -106%) !important;
   }
   #milestone-2-img {
-    left: 1400px !important;
-    top: 1300px !important;
+    left: 1610px !important;
+    top: 1498px !important;
     transform: translate(-50%, 8%) !important;
   }
 
-  /* Node 3 Stack (The Spark: From One PD Camera - cx: 1781, cy: 2100) */
+  /* Node 3 Stack (The Spark: From One PD Camera - path: 1654, 2352) */
   #milestone-3 {
-    left: 1781px !important;
-    top: 2100px !important;
+    left: 1654px !important;
+    top: 2352px !important;
     transform: translate(-50%, -106%) !important;
   }
   #milestone-3-img {
-    left: 1781px !important;
-    top: 2100px !important;
+    left: 1654px !important;
+    top: 2352px !important;
     transform: translate(-50%, 8%) !important;
   }
 
-  /* Node 4 Stack (Today: 23+ Years of Trust - cx: 1219, cy: 2900) */
+  /* Node 4 Stack (Today: 23+ Years of Trust - path: 1213, 3173) */
   #milestone-4 {
-    left: 1219px !important;
-    top: 2900px !important;
+    left: 1213px !important;
+    top: 3173px !important;
     transform: translate(-50%, -106%) !important;
   }
   #milestone-4-img {
-    left: 1219px !important;
-    top: 2900px !important;
+    left: 1213px !important;
+    top: 3173px !important;
     transform: translate(-50%, 8%) !important;
   }
 
-  /* Node 5 Stack (Partnerships: Trusted by Global Brands - cx: 1615, cy: 3700) */
+  /* Node 5 Stack (Partnerships: Trusted by Global Brands - path: 1615, 3955) */
   #milestone-5 {
     left: 1615px !important;
-    top: 3700px !important;
+    top: 3955px !important;
     transform: translate(-50%, -106%) !important;
   }
   #milestone-5-img {
     left: 1615px !important;
-    top: 3700px !important;
+    top: 3955px !important;
     transform: translate(-50%, 8%) !important;
   }
 }
