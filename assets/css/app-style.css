@@ -1716,8 +1716,11 @@ body.menu-is-open .inquire_btn {
 }
 
 /* === FULLSCREEN OVERLAY DEDICATED CLOSE TRIGGER === */
+button.menu_overlay_close_trigger,
 .menu_overlay_close_trigger {
-  position: absolute !important;
+  all: unset !important;
+  box-sizing: border-box !important;
+  position: fixed !important;
   top: 2rem !important;
   right: 2.5rem !important;
   display: flex !important;
@@ -1726,33 +1729,44 @@ body.menu-is-open .inquire_btn {
   background: transparent !important;
   border: none !important;
   cursor: pointer !important;
-  padding: 0.5rem !important;
+  padding: 0.5rem 0.75rem !important;
   z-index: 10010 !important;
   outline: none !important;
   color: #eee5cf !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  pointer-events: auto !important;
 }
 
-.menu_close_text {
-  font-family: var(--font-outfit), sans-serif !important;
+button.menu_overlay_close_trigger .menu_close_text,
+.menu_overlay_close_trigger .menu_close_text {
+  font-family: var(--font-outfit), 'Outfit', sans-serif !important;
   font-size: 0.85rem !important;
   font-weight: 700 !important;
   letter-spacing: 0.2em !important;
   text-transform: uppercase !important;
   color: #eee5cf !important;
+  background: transparent !important;
+  line-height: 1 !important;
   transition: opacity 0.3s ease !important;
 }
 
-.menu_close_burger {
+button.menu_overlay_close_trigger .menu_close_burger,
+.menu_overlay_close_trigger .menu_close_burger {
   width: 24px !important;
   height: 24px !important;
   position: relative !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
+  background: transparent !important;
 }
 
-.burger_cross_line1,
-.burger_cross_line2 {
+button.menu_overlay_close_trigger .burger_cross_line1,
+button.menu_overlay_close_trigger .burger_cross_line2,
+.menu_overlay_close_trigger .burger_cross_line1,
+.menu_overlay_close_trigger .burger_cross_line2 {
   position: absolute !important;
   width: 20px !important;
   height: 2px !important;
@@ -1761,11 +1775,13 @@ body.menu-is-open .inquire_btn {
   transition: transform 0.3s ease, background-color 0.3s ease !important;
 }
 
-.burger_cross_line1 {
+button.menu_overlay_close_trigger .burger_cross_line1,
+.menu_overlay_close_trigger .burger_cross_line1 {
   transform: rotate(45deg) !important;
 }
 
-.burger_cross_line2 {
+button.menu_overlay_close_trigger .burger_cross_line2,
+.menu_overlay_close_trigger .burger_cross_line2 {
   transform: rotate(-45deg) !important;
 }
 
@@ -1782,6 +1798,7 @@ body.menu-is-open .inquire_btn {
 }
 
 @media (max-width: 48rem) {
+  button.menu_overlay_close_trigger,
   .menu_overlay_close_trigger {
     top: 1.25rem !important;
     right: 1.25rem !important;
