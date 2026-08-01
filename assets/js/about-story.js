@@ -49,16 +49,16 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   
   const isMobile = window.innerWidth <= 768;
-  const xTo = gsap.quickTo(".story_content", "x", { duration: isMobile ? 0.15 : 0.6, ease: "power2.out" });
-  const yTo = gsap.quickTo(".story_content", "y", { duration: isMobile ? 0.15 : 0.6, ease: "power2.out" });
+  const xTo = gsap.quickTo(".story_content", "x", { duration: isMobile ? 0.2 : 0.6, ease: "power2.out" });
+  const yTo = gsap.quickTo(".story_content", "y", { duration: isMobile ? 0.2 : 0.6, ease: "power2.out" });
   
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: ".about_story_wrap",
       start: "top top",
-      end: isMobile ? "+=4500" : "+=8000",
+      end: isMobile ? "+=6500" : "+=8000",
       pin: true,
-      scrub: isMobile ? 0.15 : 0.6,
+      scrub: isMobile ? 0.3 : 0.6,
       anticipatePin: 1,
       invalidateOnRefresh: true
     }
@@ -91,11 +91,11 @@ document.addEventListener("DOMContentLoaded", () => {
         leadDots.forEach(dot => gsap.set(dot, { opacity: 0 }));
       }
       
-      toggleActive("milestone-1", "node-1", progress >= 0.09);
-      toggleActive("milestone-2", "node-2", progress >= 0.25);
-      toggleActive("milestone-3", "node-3", progress >= 0.44);
-      toggleActive("milestone-4", "node-4", progress >= 0.64);
-      toggleActive("milestone-5", "node-5", progress >= 0.83);
+      toggleActive("milestone-1", "node-1", progress >= 0.04);
+      toggleActive("milestone-2", "node-2", progress >= 0.18);
+      toggleActive("milestone-3", "node-3", progress >= 0.36);
+      toggleActive("milestone-4", "node-4", progress >= 0.56);
+      toggleActive("milestone-5", "node-5", progress >= 0.75);
     }
   });
   
