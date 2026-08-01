@@ -417,10 +417,6 @@ document.addEventListener("DOMContentLoaded", () => {
       <img src="${project.img}" alt="${project.title}" class="gallery_img" loading="lazy" />
     `;
     
-    card.addEventListener("click", () => {
-      openProjectModal(project);
-    });
-    
     return card;
   }
 
