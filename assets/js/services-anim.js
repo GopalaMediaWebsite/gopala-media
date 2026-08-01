@@ -60,10 +60,25 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /* ==========================================================================
-       2. Image Parallax on Scroll
+       2. Scroll-Driven Clip-Path Unfolding Frame Reveal
        ========================================================================== */
     gsap.utils.toArray(".services_img_wrap").forEach(wrap => {
       const img = wrap.querySelector(".services_img");
+      
+      // Unfold clip path from center on scroll
+      gsap.fromTo(wrap,
+        { clipPath: "inset(15% 15% 15% 15% round 20px)" },
+        {
+          clipPath: "inset(0% 0% 0% 0% round 0px)",
+          ease: "none",
+          scrollTrigger: {
+            trigger: wrap,
+            start: "top bottom",
+            end: "center center",
+            scrub: true
+          }
+        }
+      );
 
       // Image Parallax scroll inside the frame
       gsap.fromTo(img,
