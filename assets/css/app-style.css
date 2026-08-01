@@ -1638,7 +1638,18 @@ a.review_expand_btn:hover,
   z-index: 10000 !important;
 }
 
-/* === NAVIGATION & MENU TRIGGER OVERRIDES === */
+/* === FORCE NAVIGATION WRAPPER & MENU TRIGGER VISIBILITY ON ALL BREAKPOINTS === */
+@media (max-width: 65rem) {
+  .nav_desktop_wrap {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+  .nav_mobile_wrap {
+    display: none !important;
+  }
+}
 
 .nav_component {
   position: fixed !important;
