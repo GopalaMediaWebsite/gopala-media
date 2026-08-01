@@ -8,3 +8,7 @@ Thumbs.db
 # Scratch files
 scratch/
 ffmpeg.exe
+node_modules/
+package-lock.json
+package.json
+test-results/
