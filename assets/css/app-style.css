@@ -1497,10 +1497,11 @@ a.review_expand_btn:hover,
   }
 
   /* Restrict milestone item and image card widths on mobile */
+  /* Restrict milestone item and image card widths on mobile for 100% text visibility */
   .story_milestone_item,
   .story_milestone_image {
-    width: min(320px, 86vw) !important;
-    max-width: 330px !important;
+    width: calc(100vw - 32px) !important;
+    max-width: 360px !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
     box-sizing: border-box !important;
@@ -1508,34 +1509,38 @@ a.review_expand_btn:hover,
 
   .story_card_inner {
     padding: 1.15rem 1.25rem !important;
-    border-radius: 14px !important;
+    border-radius: 16px !important;
     box-shadow: 0 10px 30px rgba(0, 52, 89, 0.12) !important;
     border: 1px solid rgba(255, 255, 255, 0.8) !important;
+    background-color: var(--_theme---background) !important;
   }
 
   .story_milestone_title {
-    font-size: 1.3rem !important;
+    font-size: clamp(1.2rem, 5vw, 1.45rem) !important;
     margin-bottom: 0.4rem !important;
+    line-height: 1.25 !important;
   }
 
   .story_milestone_text {
-    font-size: 0.825rem !important;
-    line-height: 1.45 !important;
+    font-size: clamp(0.8rem, 3.6vw, 0.9rem) !important;
+    line-height: 1.5 !important;
+    color: var(--_theme---text) !important;
+    opacity: 0.9 !important;
   }
 
   .story_milestone_year {
-    font-size: 0.68rem !important;
+    font-size: 0.7rem !important;
     padding: 0.15rem 0.55rem !important;
-    margin-bottom: 0.3rem !important;
+    margin-bottom: 0.35rem !important;
   }
 
   .story_image_inner {
     aspect-ratio: 16 / 9 !important;
-    height: 170px !important;
+    height: 165px !important;
     border-radius: 14px !important;
   }
 
-  /* Node 1 Stack (2002: A Leap of Faith) */
+  /* Node 1 Stack (2002: A Leap of Faith - cx: 1462, cy: 500) */
   #milestone-1 {
     left: 1462px !important;
     top: 500px !important;
@@ -1547,7 +1552,7 @@ a.review_expand_btn:hover,
     transform: translate(-50%, 8%) !important;
   }
 
-  /* Node 2 Stack (The Name: Why Gopala?) */
+  /* Node 2 Stack (The Name: Why Gopala? - cx: 1400, cy: 1300) */
   #milestone-2 {
     left: 1400px !important;
     top: 1300px !important;
@@ -1559,7 +1564,7 @@ a.review_expand_btn:hover,
     transform: translate(-50%, 8%) !important;
   }
 
-  /* Node 3 Stack (The Spark: From One PD Camera) */
+  /* Node 3 Stack (The Spark: From One PD Camera - cx: 1781, cy: 2100) */
   #milestone-3 {
     left: 1781px !important;
     top: 2100px !important;
@@ -1571,7 +1576,7 @@ a.review_expand_btn:hover,
     transform: translate(-50%, 8%) !important;
   }
 
-  /* Node 4 Stack (Today: 23+ Years of Trust) */
+  /* Node 4 Stack (Today: 23+ Years of Trust - cx: 1219, cy: 2900) */
   #milestone-4 {
     left: 1219px !important;
     top: 2900px !important;
@@ -1583,7 +1588,7 @@ a.review_expand_btn:hover,
     transform: translate(-50%, 8%) !important;
   }
 
-  /* Node 5 Stack (Partnerships: Trusted by Global Brands) */
+  /* Node 5 Stack (Partnerships: Trusted by Global Brands - cx: 1615, cy: 3700) */
   #milestone-5 {
     left: 1615px !important;
     top: 3700px !important;
