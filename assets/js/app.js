@@ -272,14 +272,6 @@ function initMenuSystem() {
     toggleMenu();
   });
 
-  const closeBtn = document.getElementById('menu-overlay-close');
-  if (closeBtn) {
-    closeBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      toggleMenu(false);
-    });
-  }
-
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && menuOverlay.classList.contains('active')) {
       toggleMenu(false);
