@@ -43,10 +43,17 @@
         overflow: hidden !important;
       }
 
+      /* Align mobile card & image origins to node coordinates */
+      #milestone-1, #milestone-1-img { left: 1402px !important; top: 678px !important; }
+      #milestone-2, #milestone-2-img { left: 1610px !important; top: 1498px !important; }
+      #milestone-3, #milestone-3-img { left: 1654px !important; top: 2352px !important; }
+      #milestone-4, #milestone-4-img { left: 1213px !important; top: 3173px !important; }
+      #milestone-5, #milestone-5-img { left: 1615px !important; top: 3955px !important; }
+
       /* Milestone Cards on Mobile */
       .story_milestone_item {
-        width: calc(100vw - 2.5rem) !important;
-        max-width: 350px !important;
+        width: calc(100vw - 2.25rem) !important;
+        max-width: 330px !important;
         position: absolute !important;
         opacity: 0 !important;
         pointer-events: none !important;
@@ -56,21 +63,21 @@
 
       .story_milestone_item.align-right,
       .story_milestone_item.align-left {
-        transform: translate(-50%, -30%) scale(0.92) !important;
+        transform: translate(-50%, 15px) scale(0.92) !important;
       }
 
       .story_milestone_item.align-right.active,
       .story_milestone_item.align-left.active {
         opacity: 1 !important;
         pointer-events: all !important;
-        transform: translate(-50%, -30%) scale(1) !important;
+        transform: translate(-50%, 15px) scale(1) !important;
       }
 
       /* Milestone Images on Mobile */
       .story_milestone_image {
-        width: calc(100vw - 2.5rem) !important;
-        max-width: 350px !important;
-        height: 190px !important;
+        width: calc(100vw - 2.25rem) !important;
+        max-width: 330px !important;
+        height: 175px !important;
         position: absolute !important;
         opacity: 0 !important;
         pointer-events: none !important;
@@ -80,14 +87,14 @@
 
       .story_milestone_image.align-right,
       .story_milestone_image.align-left {
-        transform: translate(-50%, -145%) scale(0.92) !important;
+        transform: translate(-50%, -195px) scale(0.92) !important;
       }
 
       .story_milestone_image.align-right.active,
       .story_milestone_image.align-left.active {
         opacity: 1 !important;
         pointer-events: all !important;
-        transform: translate(-50%, -145%) scale(1) !important;
+        transform: translate(-50%, -195px) scale(1) !important;
       }
 
       .story_card_inner {
