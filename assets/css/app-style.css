@@ -1585,26 +1585,6 @@ a.review_expand_btn:hover,
   }
 }
 
-/* --- DESKTOP SIDE-BY-SIDE TRANSFORMS (> 64rem / 1024px) --- */
-@media (min-width: 64.01rem) {
-  .story_milestone_item.align-right,
-  .story_milestone_item.align-right.active {
-    transform: translate(60px, -50%) !important;
-  }
-  .story_milestone_image.align-right,
-  .story_milestone_image.align-right.active {
-    transform: translate(60px, -50%) !important;
-  }
-  .story_milestone_item.align-left,
-  .story_milestone_item.align-left.active {
-    transform: translate(calc(-100% - 60px), -50%) !important;
-  }
-  .story_milestone_image.align-left,
-  .story_milestone_image.align-left.active {
-    transform: translate(calc(-100% - 60px), -50%) !important;
-  }
-}
-
 /* --- 120FPS GPU HARDWARE ACCELERATION FOR ABOUT STORY --- */
 .about_story_wrap,
 .story_viewport,
