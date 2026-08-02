@@ -166,19 +166,50 @@ function initHeaderColorScroll() {
   const header = document.querySelector('.nav_desktop_wrap');
   if (!header) return;
 
+  function isElementDark(el) {
+    let current = el;
+    while (current && current !== document.body && current !== document.documentElement) {
+      if (current.classList && current.classList.contains('nav_component')) {
+        current = current.parentElement;
+        continue;
+      }
+      const style = window.getComputedStyle(current);
+      const bg = style.backgroundColor;
+      if (bg && bg !== 'transparent' && bg !== 'rgba(0, 0, 0, 0)') {
+        const match = bg.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+        if (match) {
+          const r = parseInt(match[1], 10);
+          const g = parseInt(match[2], 10);
+          const b = parseInt(match[3], 10);
+          const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+          return brightness < 160;
+        }
+      }
+      if (current.classList && (current.classList.contains('hero_main_wrap') || current.classList.contains('hero_video_overlay') || current.classList.contains('footer_wrap') || current.classList.contains('u-theme-dark') || current.classList.contains('social_ticker_wrap'))) {
+        return true;
+      }
+      current = current.parentElement;
+    }
+    return false;
+  }
+
   function getDarkSections() {
-    return Array.from(document.querySelectorAll('.hero_main_wrap, .hero_video_overlay, .footer_wrap, footer, .social_ticker_wrap, .is-dark-section, [data-theme="dark"]'));
+    return Array.from(document.querySelectorAll('.hero_main_wrap, .hero_video_overlay, .footer_wrap, footer, .social_ticker_wrap, .is-dark-section, [data-theme="dark"], .u-theme-dark')).filter(el => !el.closest('.nav_component'));
   }
 
   function updateHeaderColor() {
     if (document.body.classList.contains('menu-is-open')) {
       header.classList.add('is-dark-bg');
+      header.classList.remove('is-light-bg');
       return;
     }
-    const isContactPage = document.body.classList.contains('contact-page');
+
     const darkSections = getDarkSections();
-    const testX = window.innerWidth / 2;
-    const testY = 40;
+    const rightGroup = header.querySelector('.nav_right_group');
+    const groupRect = rightGroup ? rightGroup.getBoundingClientRect() : null;
+
+    const testX = groupRect ? (groupRect.left + groupRect.width / 2) : (window.innerWidth - 100);
+    const testY = groupRect ? (groupRect.top + groupRect.height / 2) : 35;
 
     let isOverDark = false;
     
@@ -189,33 +220,41 @@ function initHeaderColorScroll() {
     header.style.pointerEvents = origPointer;
 
     if (sampledEl) {
-      darkSections.forEach(sec => {
+      for (const sec of darkSections) {
         if (sec.contains(sampledEl) || sec === sampledEl) {
           isOverDark = true;
+          break;
         }
-      });
+      }
+      if (!isOverDark && isElementDark(sampledEl)) {
+        isOverDark = true;
+      }
     }
 
     if (!isOverDark) {
       const scrolledPastHero = window.scrollY > (window.innerHeight * 0.7);
       if (scrolledPastHero) {
-        darkSections.forEach(sec => {
+        for (const sec of darkSections) {
           const rect = sec.getBoundingClientRect();
           if (rect.top <= testY && rect.bottom >= testY) {
             isOverDark = true;
+            break;
           }
-        });
+        }
       }
     }
 
     if (isOverDark) {
       header.classList.add('is-dark-bg');
+      header.classList.remove('is-light-bg');
     } else {
       header.classList.remove('is-dark-bg');
+      header.classList.add('is-light-bg');
     }
   }
 
   window.addEventListener('scroll', updateHeaderColor, { passive: true });
+  window.addEventListener('resize', updateHeaderColor, { passive: true });
   updateHeaderColor();
 }
 
