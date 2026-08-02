@@ -1,0 +1,6 @@
+# Robots.txt for Gopala Media (https://gopalamedia.com)
+User-agent: *
+Allow: /
+
+# Sitemap Indexing Reference
+Sitemap: https://gopalamedia.com/sitemap.xml
