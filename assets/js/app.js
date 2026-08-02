@@ -276,6 +276,9 @@ function initMenuSystem() {
   const burgerBottom = document.getElementById('burger-bottom');
   if (!menuTrigger || !menuOverlay) return;
 
+  // Prevent Lenis smooth scroll library from swallowing touchmove events inside menu overlay
+  menuOverlay.setAttribute('data-lenis-prevent', 'true');
+
   const menuText = menuTrigger.querySelector('.menu_text');
   const header = document.querySelector('.nav_desktop_wrap');
   let isMenuOpen = false;
