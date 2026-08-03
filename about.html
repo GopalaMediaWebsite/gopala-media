@@ -133,6 +133,24 @@
         top: -60px !important;
       }
     }
+
+    /* Team Section Hover Effects - Option 2: B&W to Full Color Reveal */
+    .team_card {
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease !important;
+    }
+    .team_card img {
+      filter: grayscale(100%) contrast(1.05) brightness(0.95);
+      transition: filter 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+    .team_card:hover {
+      transform: translateY(-8px) !important;
+      box-shadow: 0 16px 36px rgba(0, 52, 89, 0.35), 0 0 20px rgba(255, 195, 0, 0.3) !important;
+      border-color: #ffc300 !important;
+    }
+    .team_card:hover img {
+      filter: grayscale(0%) contrast(1) brightness(1) !important;
+      transform: scale(1.08) !important;
+    }
   </style>
 </head>
 <body>
@@ -338,8 +356,78 @@
         </div>
       </section>
 
-      <!-- Cream transition space before footer -->
-      <div style="height: 200px; background-color: var(--_theme---background);"></div>
+      <!-- TEAM SECTION: POWERING THE VISION -->
+      <section class="team_section" style="background-color: var(--swatch--brand-500); color: var(--swatch--brand-800); padding: 0.5rem var(--site--margin) 4rem var(--site--margin); border-top: 1px solid rgba(0, 52, 89, 0.15);">
+        <div class="u-container" style="max-width: var(--max-width--main); margin: 0 auto;">
+          
+          <div style="text-align: center; margin-bottom: 3.5rem;">
+            <span style="font-family: var(--_typography---font--tertiary-family); font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--swatch--brand-800); display: block; margin-bottom: 0.5rem; opacity: 0.85;">OUR LEADERSHIP &amp; CREW</span>
+            <h2 style="font-family: var(--_typography---font--secondary-family); font-size: clamp(2.25rem, 5vw, 3.5rem); font-weight: 700; color: var(--swatch--brand-800); text-transform: uppercase; letter-spacing: 0.05em; margin: 0;">
+              Powering The Vision
+            </h2>
+          </div>
+
+          <div class="team_grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.75rem; justify-content: center;">
+            
+            <!-- Card 1: Binod Gupta -->
+            <div class="team_card" style="border: 2px solid var(--swatch--brand-600); padding: 1.25rem; background-color: rgba(0, 52, 89, 0.85); border-radius: 4px; display: flex; flex-direction: column; align-items: center; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+              <div style="width: 100%; aspect-ratio: 4/5; overflow: hidden; margin-bottom: 1.25rem; border: 1px solid rgba(255, 195, 0, 0.3);">
+                <img src="GM images/about us/team/binod_gupta.jpg" alt="Binod Gupta" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;" loading="lazy">
+              </div>
+              <h3 style="font-family: var(--_typography---font--primary-family); font-size: 1.25rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">Binod Gupta</h3>
+              <p style="font-family: var(--_typography---font--primary-family); font-size: 0.875rem; line-height: 1.55; color: var(--swatch--brand-700); opacity: 0.9; margin: 0;">
+                <strong style="color: var(--swatch--brand-600);">33+ years</strong> experience in Media and Production, worked with NVL (CMS currently)
+              </p>
+            </div>
+
+            <!-- Card 2: Amritanshu -->
+            <div class="team_card" style="border: 2px solid var(--swatch--brand-600); padding: 1.25rem; background-color: rgba(0, 52, 89, 0.85); border-radius: 4px; display: flex; flex-direction: column; align-items: center; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+              <div style="width: 100%; aspect-ratio: 4/5; overflow: hidden; margin-bottom: 1.25rem; border: 1px solid rgba(255, 195, 0, 0.3);">
+                <img src="GM images/about us/team/amritanshu.jpg" alt="Amritanshu" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;" loading="lazy">
+              </div>
+              <h3 style="font-family: var(--_typography---font--primary-family); font-size: 1.25rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">Amritanshu</h3>
+              <p style="font-family: var(--_typography---font--primary-family); font-size: 0.875rem; line-height: 1.55; color: var(--swatch--brand-700); opacity: 0.9; margin: 0;">
+                <strong style="color: var(--swatch--brand-600);">7+ years</strong> of experience in production &amp; cinematography, worked with NDTV
+              </p>
+            </div>
+
+            <!-- Card 3: Anshuman -->
+            <div class="team_card" style="border: 2px solid var(--swatch--brand-600); padding: 1.25rem; background-color: rgba(0, 52, 89, 0.85); border-radius: 4px; display: flex; flex-direction: column; align-items: center; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+              <div style="width: 100%; aspect-ratio: 4/5; overflow: hidden; margin-bottom: 1.25rem; border: 1px solid rgba(255, 195, 0, 0.3);">
+                <img src="GM images/about us/team/anshuman.png" alt="Anshuman" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;" loading="lazy">
+              </div>
+              <h3 style="font-family: var(--_typography---font--primary-family); font-size: 1.25rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">Anshuman</h3>
+              <p style="font-family: var(--_typography---font--primary-family); font-size: 0.875rem; line-height: 1.55; color: var(--swatch--brand-700); opacity: 0.9; margin: 0;">
+                <strong style="color: var(--swatch--brand-600);">9+ years</strong> of experience in Photography &amp; cinematography
+              </p>
+            </div>
+
+            <!-- Card 4: Amrisha -->
+            <div class="team_card" style="border: 2px solid var(--swatch--brand-600); padding: 1.25rem; background-color: rgba(0, 52, 89, 0.85); border-radius: 4px; display: flex; flex-direction: column; align-items: center; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+              <div style="width: 100%; aspect-ratio: 4/5; overflow: hidden; margin-bottom: 1.25rem; border: 1px solid rgba(255, 195, 0, 0.3);">
+                <img src="GM images/about us/team/amrisha.png" alt="Amrisha" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;" loading="lazy">
+              </div>
+              <h3 style="font-family: var(--_typography---font--primary-family); font-size: 1.25rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">Amrisha</h3>
+              <p style="font-family: var(--_typography---font--primary-family); font-size: 0.875rem; line-height: 1.55; color: var(--swatch--brand-700); opacity: 0.9; margin: 0;">
+                <strong style="color: var(--swatch--brand-600);">MBA from IIT Delhi</strong><br>Worked with Cummins India &amp; Bombay Shaving Company
+              </p>
+            </div>
+
+            <!-- Card 5: Vicky (Manager) -->
+            <div class="team_card" style="border: 2px solid var(--swatch--brand-600); padding: 1.25rem; background-color: rgba(0, 52, 89, 0.85); border-radius: 4px; display: flex; flex-direction: column; align-items: center; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+              <div style="width: 100%; aspect-ratio: 4/5; overflow: hidden; margin-bottom: 1.25rem; border: 1px solid rgba(255, 195, 0, 0.3);">
+                <img src="GM images/about us/team/vicky.jpg" alt="Vicky" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;" loading="lazy">
+              </div>
+              <h3 style="font-family: var(--_typography---font--primary-family); font-size: 1.25rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">Vicky</h3>
+              <p style="font-family: var(--_typography---font--primary-family); font-size: 0.875rem; line-height: 1.55; color: var(--swatch--brand-700); opacity: 0.9; margin: 0;">
+                <strong style="color: var(--swatch--brand-600);">12+ years</strong> of experience as Manager working with Gopala Media
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
 
     </main>
 

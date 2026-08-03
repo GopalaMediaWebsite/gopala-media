@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
     scrollTrigger: {
       trigger: ".about_story_wrap",
       start: "top top",
-      end: isMobile ? "+=6500" : "+=8000",
+      end: isMobile ? "+=3200" : "+=3800",
       pin: true,
       scrub: isMobile ? 0.3 : 0.6,
       anticipatePin: 1,
@@ -76,6 +76,9 @@ document.addEventListener("DOMContentLoaded", () => {
       if (progress < 0.15) {
         const ratio = progress / 0.15;
         centerY = gsap.utils.interpolate(80, window.innerHeight * 0.5, ratio);
+      } else if (progress > 0.75) {
+        const ratio = Math.min(1, (progress - 0.75) / 0.25);
+        centerY = gsap.utils.interpolate(window.innerHeight * 0.5, window.innerHeight - 300, ratio);
       }
       
       xTo(window.innerWidth / 2 - point.x);
